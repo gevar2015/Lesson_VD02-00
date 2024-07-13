@@ -1,18 +1,22 @@
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index1.html')
-
-@app.route('/blog')
-def blog():
-    return render_template('blog1.html')
-
-@app.route('/contacts')
-def contacts():
-    return render_template('contacts1.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('blog') }}">Блог</a></li>
+            <li><a href="{{ url_for('contacts') }}">Контакты</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Контакты</h1>
+        <p>Здесь будет контактная информация.</p>
+    </div>
+</body>
+</html>
